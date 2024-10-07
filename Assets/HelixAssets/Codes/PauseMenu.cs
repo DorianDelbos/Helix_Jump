@@ -3,6 +3,7 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject pauseButton;
 
     void Start()
     {
@@ -21,9 +22,10 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    private void EnablePause(bool enable)
+    public void EnablePause(bool enable)
     {
         Time.timeScale = (enable ? 0.0f : 1.0f);
         pauseMenu.SetActive(enable);
+        pauseButton.SetActive(!enable);
     }
 }
